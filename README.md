@@ -14,12 +14,12 @@ The relay logs into Steam as an anonymous game server, accepts Steam P2P connect
 
 Environment variables (`SS13RELAY_*`) or a TOML file (`SS13RELAY_CONFIG`, default `/etc/ss13relay/config.toml`).
 
-| Setting | Default |
+| Setting | Default | Description |
 |---|---|---|
 | `targets` | required | DreamDaemon addresses: `127.0.0.1:1337`, or `dreamdaemon:1337` in Docker. Comma-separated in the environment variable. |
 | `secret` | required | Shared with the server's `SS13LIB_RELAY_SECRET`. Any long random string, e.g. `openssl rand -hex 24` |
 | `steam_app_id` | `5287320` | The relays can only serve users using the given app ID |
-| `source_address` | `127.0.0.2` for loopback targets |
+| `source_address` | `127.0.0.2` for loopback targets | Address the relay communicates from |
 | `send_rate` | `1048576` | Bytes/s per connection, throughput collapses above 1.08 MB/s. |
 | `ice` | `true` | Allow direct UDP routes alongside the relays; Steam picks whichever is faster. Shares the server's IP with players. |
 | `gslt` | anonymous | A Steam game server login token, for a stable SteamID. |
