@@ -95,7 +95,7 @@ fn start_steam(config: &Config) -> anyhow::Result<(Server, steamworks::Client)> 
     let logged_on = Arc::new(AtomicBool::new(false));
     let flag = logged_on.clone();
 
-	// Kept registered for the life of the process.
+    // Kept registered for the life of the process.
     std::mem::forget(
         server
             .register_callback(move |_: SteamServersConnected| flag.store(true, Ordering::SeqCst)),
