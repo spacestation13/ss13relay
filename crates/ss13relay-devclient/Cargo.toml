@@ -1,0 +1,15 @@
+[package]
+name = "ss13relay-devclient"
+description = "Development client for ss13relay"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+ss13relay-proto.workspace = true
+steamworks.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+anyhow.workspace = true

@@ -1,0 +1,18 @@
+[package]
+name = "ss13relay"
+description = "Relays Steam Datagram Relay connections from the luncher to a DreamDaemon server"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+ss13relay-proto.workspace = true
+steamworks.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+figment = { version = "0.10", features = ["toml", "env"] }
+form_urlencoded = "1"

@@ -1,0 +1,22 @@
+# Run ss13relay next to a DreamDaemon. Only outbound traffic is needed (Steam's relay
+# network, plus direct UDP routes), so no ports are published.
+
+services:
+  ss13relay:
+    image: ghcr.io/spacestation13/ss13relay:latest
+    restart: unless-stopped
+    environment:
+      # If DreamDaemon is in the same compose project, use the service name.
+      SS13RELAY_TARGETS: "dreamdaemon:1337"
+      # If DreamDaemon is on the host instead: target host.docker.internal and add extra_hosts below.
+      # SS13RELAY_TARGETS: "host.docker.internal:1337"
+      # Required. Must match the game server's SS13LIB_RELAY_SECRET (e.g. `openssl rand -hex 24`).
+      SS13RELAY_SECRET: "${SS13RELAY_SECRET:?set SS13RELAY_SECRET}"
+      # SS13RELAY_STEAM_APP_ID: "5287320"
+    volumes:
+      - ss13relay:/var/lib/ss13relay
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+
+volumes:
+  ss13relay:
